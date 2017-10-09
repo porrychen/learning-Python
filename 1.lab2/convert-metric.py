@@ -33,7 +33,8 @@ class Convertor():
         if self.__metric != float(1) and self.__metric != float(0):
             self.__metric_name += self.__metric_name_plural
 
-        result = ' ' + str(self.__us) + ' ' + self.__us_name + ' is equal to ' + format(self.__metric, ',f') + ' ' + self.__metric_name + ' ';
+        self.__metric = format(self.__metric, ',f')
+        result = ' ' + str(self.__us) + ' ' + self.__us_name + ' is equal to ' + self.__metric + ' ' + self.__metric_name + ' ';
         pix_result = ''
         siff_result = ''
         for i in range(0, len(result)):
@@ -55,7 +56,7 @@ class Convertor():
         self.__us_name_plural = '';
         self.__metric_name_plural = '';
         self.__us = int(self.input_us_measures('Fahrenheit temperature', 'Celsius temperature'))
-        self.__metric = (self.__us - 32) * 5//9
+        self.__metric = (self.__us - 32) * 5/9
         self.output_metric_measures()
 
     # The gallons_to_liters method one gallon to 3.9 liters
