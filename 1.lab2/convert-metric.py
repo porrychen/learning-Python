@@ -50,11 +50,11 @@ class Convertor():
         self.__metric = self.__us * 1.6
         self.output_metric_measures()
 
-    # The fahrenheit_to_celsiu method one C = (F - 32) * 5/9
-    def fahrenheit_to_celsiu(self):
+    # The fahrenheit_to_celsius method one C = (F - 32) * 5/9
+    def fahrenheit_to_celsius(self):
         self.__us_name_plural = '';
         self.__metric_name_plural = '';
-        self.__us = int(self.input_us_measures('Fahrenheit temperature', 'Celsiu temperature'))
+        self.__us = int(self.input_us_measures('Fahrenheit temperature', 'Celsius temperature'))
         self.__metric = (self.__us - 32) * 5//9
         self.output_metric_measures()
 
@@ -97,7 +97,7 @@ def main():
         if choice == MILES:
             convertor.miles_to_kilometers()
         elif choice == FAHRENHEIT:
-            convertor.fahrenheit_to_celsiu()
+            convertor.fahrenheit_to_celsius()
         elif choice == GALLONS:
             convertor.gallons_to_liters()
         elif choice == POUNDS:
@@ -112,7 +112,7 @@ def main():
 # and gets a validated choice from the user.
 def get_menu_choice():
     count = 0;
-    menudata = get_menu_data();
+    menudata = get_menu_data()
 
     # display a Menu
     print()
@@ -135,7 +135,7 @@ def get_menu_choice():
         count += 1
 
     # return the user's choice.
-    return choice;
+    return choice
 
 # The get_menu_data function makes the menu's data
 def get_menu_data():
@@ -145,7 +145,6 @@ def get_menu_data():
             '4': 'Pounds to kilograms',
             '5': 'Inches to centimeters',
             '9': 'Quit the program'}
-
 
 # Call the main function.
 main()
