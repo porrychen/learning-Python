@@ -19,7 +19,7 @@ First
 
   declare fahrenheit_to_celsius method
     call self.input_us_measures
-    Calculate self.__metric = (self.__us - 32) * 5//9
+    Calculate self.__metric = (self.__us - 32) * 5/9
     call output_metric_measures
 
   declare gallons_to_liters method
