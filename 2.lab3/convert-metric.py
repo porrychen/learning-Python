@@ -23,7 +23,7 @@ class Convertor():
     @property
     def to_name(self):
         return self._to_name
-    
+
     @property
     def to_number(self):
         return self._to_number
@@ -44,17 +44,17 @@ class Convertor():
 
         if not result:
             if number < 0.0:
-                print('ERROR: must be not a negative number.')
+                print('⭕  ERROR: must be not a negative number.')
                 print()
             else:
                 result = True
 
         if result and self.max_from_number > 0:
             if self.from_number > self.max_from_number:
-                print('ERROR: must be lower than or equal to ', self.max_from_number, ' number.', sep = '')
+                print('⭕  ERROR: must be lower than or equal to ', self.max_from_number, ' number.', sep = '')
                 print()
                 result = False
-        
+
         return result
 
     # The input_number method enter a number for convertor
@@ -64,7 +64,7 @@ class Convertor():
             self._from_number = float(input('Enter a number: '))
             return self.verify_number(self._from_number)
         except ValueError:
-            print('ERROR: must be a valid number.')
+            print('⭕  ERROR: must be a valid number.')
             print()
 
     # The output_result method displays result
@@ -75,8 +75,8 @@ class Convertor():
         pix_result = ''
         siff_result = ''
         for i in range(0, len(result)):
-            pix_result += '↓'
-            siff_result += '↑'
+            pix_result += '→'
+            siff_result += '↟'
 
         print(pix_result, result, siff_result, sep = '\n')
 
@@ -105,7 +105,7 @@ class Miles(Convertor):
 
     @Convertor.to_number.getter
     def to_number(self):
-        return None if self.from_number == None else self.from_number * 1.6 
+        return None if self.from_number == None else self.from_number * 1.6
 
 # The Fahrenheit convert F temperature to C.
 # C = (F - 32) * 5/9
@@ -129,7 +129,7 @@ class Fahrenheit(Convertor):
 
     @Convertor.to_number.getter
     def to_number(self):
-        return None if self.from_number == None else (self.from_number  - 32) * 5 / 9 
+        return None if self.from_number == None else (self.from_number  - 32) * 5 / 9
 
 # The Gallons convert gallons_to_liters.
 # one gallon to 3.9 liters
@@ -145,7 +145,7 @@ class Gallons(Convertor):
 
     @Convertor.to_number.getter
     def to_number(self):
-        return None if self.from_number == None else self.from_number * 3.9 
+        return None if self.from_number == None else self.from_number * 3.9
 
 # The Pounds convert pounds_to_kilograms
 # one pound to 0.45 kilograms.
@@ -161,7 +161,7 @@ class Pounds(Convertor):
 
     @Convertor.to_number.getter
     def to_number(self):
-        return None if self.from_number == None else self.from_number * 0.45 
+        return None if self.from_number == None else self.from_number * 0.45
 
 # The Inches convert inches_to_centimeters
 # one inch to 2.54 centimeters.
@@ -178,7 +178,7 @@ class Inches(Convertor):
     @Convertor.to_number.getter
     def to_number(self):
         return None if self.from_number == None else self.from_number * 2.54
-    
+
 '''
     -------------------- End Class --------------------
     ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
@@ -215,14 +215,17 @@ def main():
             convertor = Pounds()
         elif choice == INCHES:
             convertor = Inches()
+        else:
+            convertor = ''
 
         if isinstance(convertor, Convertor):
             convertor.convertor()
 
             del convertor
     else:
-        print('------------------------------')
-        print(' Bye! See you next time!')
+        print('⬐-----------------------------⬎')
+        print(' ⭐  Bye! See you next time! ⭐ ')
+        print('⬑-----------------------------⬏')
 
 # The get_menu_choice function displays the menu
 # and gets a validated choice from the user.
@@ -232,8 +235,8 @@ def get_menu_choice():
 
     # display a Menu
     print()
-    print(' Menu')
-    print('------------------------------')
+    print(' ⬓ Menu ⬓')
+    print('-------------------------------')
     for key, value in sorted(menudata.items()):
         print(key, ') ', value, sep = '')
     print()
@@ -244,7 +247,7 @@ def get_menu_choice():
             choice = int(input('Enter a valid choice: '))
 
         except ValueError:
-            print('ERROR: a choice must be valid numbers.')
+            print('⭕  ERROR: a choice must be valid numbers.')
             print()
             choice = 0
 
@@ -266,7 +269,7 @@ def get_menu_data():
 main()
 
 '''
-    ====================================================
+    ∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
     --------------------- End Main ---------------------
-    ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+    ∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎∎
 '''
