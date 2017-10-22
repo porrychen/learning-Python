@@ -9,6 +9,13 @@ ERROR = "\n⭕  ERROR:"
 
 # The main function.
 def main():
+    employee_salary()
+
+    print('⬐-----------------------------⬎')
+    print('             Bye! 🎃 ')
+    print('⬑-----------------------------⬏')
+
+def employee_salary(ask_again = True):
     employee_name = input_employee_name(3)
     if employee_name != '':
         worked_hours = input_worked_hours(employee_name)
@@ -18,11 +25,32 @@ def main():
 
             if hour_pay != None:
                 gross_salary = worked_hours * hour_pay
-                print(employee_name, worked_hours, hour_pay, gross_salary)
+                each_deduction = calculate_deductions(gross_salary)
+                net_salary = gross_salary - each_deduction['deductions']
 
-    print('⬐-----------------------------⬎')
-    print('             Bye! 🎃 ')
-    print('⬑-----------------------------⬏')
+                print()
+                print("The employee's name is ", employee_name, ".", sep = "")
+                print(" ⦧ Gross salary: ", format_to_currency(gross_salary), \
+                      " (hours worked is ", worked_hours, " and an hourly pay rate is ", format_to_currency(hour_pay), ")", sep = "")
+                print(" ⦙ Deductions: ", format_to_currency(each_deduction['deductions']), sep = "\t")
+                print(" ⦙   ⧁  Income tax: ", format_to_currency(each_deduction['tax_rate']), sep = "\t")
+                print(" ⦙   ⧁  Social security tax: ", format_to_currency(each_deduction['social_security_rate']), sep = "\t")
+                print(" ⦙   ⧁  Medical plan: ", format_to_currency(each_deduction['medical_rate']), sep = "\t")
+                print(" ⦙   ⧁  Retirement.: ", format_to_currency(each_deduction['retirement_rate']), sep = "\t")
+                print(" ⦦ Net salary: ", format_to_currency(net_salary), sep = "\t")
+
+                if ask_again:
+                    print()
+                    again = str(input("Do you want to input another emplayee's salary? (y/n): ")).lower() == 'y'
+
+                    if again:
+                        print()
+                        employee_salary()
+
+
+# The format_to_currency function.
+def format_to_currency(number):
+    return '$' + format(number, ',.2f')
 
 # The input_employee_name function.
 def input_employee_name(count, message = ''):
@@ -71,8 +99,34 @@ def input_hour_pays(employee_name, less_value = 9):
         print(ERROR, 'an hourly pay rate must be valid numbers.')
         print()
 
-def calculate_deduction(gross_salary):
-    return 0
+def calculate_deductions(gross_salary):
+    result = {'tax_rate': 0, 'social_security_rate': 0,
+              'medical_rate': 0, 'retirement_rate': 0,
+              'deductions': 0}
+
+    if gross_salary < 4000.0:
+        result['tax_rate'] = gross_salary * 0.12
+        result['social_security_rate'] = gross_salary * 0.04
+        result['medical_rate'] = gross_salary * 0.01
+    elif gross_salary < 8000.0:
+        result['tax_rate'] = gross_salary * 0.2
+        result['social_security_rate'] = gross_salary * 0.07
+        result['medical_rate'] = gross_salary * 0.03
+    elif gross_salary < 16000.0:
+        result['tax_rate'] = gross_salary * 0.3
+        result['social_security_rate'] = gross_salary * 0.09
+        result['medical_rate'] = gross_salary * 0.05
+    elif gross_salary >= 16000.0:
+        result['tax_rate'] = gross_salary * 0.38
+        result['social_security_rate'] = gross_salary * 0.11
+        result['medical_rate'] = gross_salary * 0.07
+
+    result['retirement_rate'] = gross_salary * 0.06
+
+    result['deductions'] = result['tax_rate'] + result['social_security_rate'] + \
+                        result['medical_rate'] + result['retirement_rate']
+
+    return result
 
 
 # Call the main function.
