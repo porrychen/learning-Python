@@ -1,3 +1,6 @@
+# This program allows the user to input
+# an employee's salary for SoftwarePirates Inc.
+
 '''
     ====================================================
     -------------------- Begin Main --------------------
@@ -15,6 +18,7 @@ def main():
     print('             Bye! 🎃 ')
     print('⬑-----------------------------⬏')
 
+# The employee_salary function.
 def employee_salary(ask_again = True):
     employee_name = input_employee_name(3)
     if employee_name != '':
@@ -46,7 +50,6 @@ def employee_salary(ask_again = True):
                     if again:
                         print()
                         employee_salary()
-
 
 # The format_to_currency function.
 def format_to_currency(number):
@@ -127,7 +130,6 @@ def calculate_deductions(gross_salary):
                         result['medical_rate'] + result['retirement_rate']
 
     return result
-
 
 # Call the main function.
 main()
