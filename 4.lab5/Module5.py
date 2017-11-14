@@ -1,14 +1,14 @@
 '''
-Write a program that consists of 2 functions, a main function and a function named calcTotalCost:
+    Write a program that consists of 2 functions, a main function and a function named calcTotalCost:
 
-The main function will do the following:
+    The main function will do the following:
 
-Gets the following information from the user: car price, registration cost, and sales tax amount
-This information is then passed to the calcTotalCost function.
-The calcTotalCost function will do the following:
+    Gets the following information from the user: car price, registration cost, and sales tax amount
+    This information is then passed to the calcTotalCost function.
+    The calcTotalCost function will do the following:
 
-Calculate the total cost of the car.
-Display the total cost to the user with an appropriate label
+    Calculate the total cost of the car.
+    Display the total cost to the user with an appropriate label
 '''
 # The main function.
 def main():
