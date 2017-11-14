@@ -61,3 +61,22 @@ Second
 
 Finally
   call main function
+
+### COMMENTS
+## Feedback to Learner
+
+For your design, I would like your pseudocode to look more like English. See pages 33 and 34 in the textbook.
+
+For example, you have:
+
+  declare miles_to_kilometers method
+    call self.input_us_measures
+    Calculate self.__metric = self.__us * 1.6
+    call output_metric_measures
+
+I would suggest something like:
+
+  miles_to_kilometers method
+    get the number of miles
+    convert miles to kilometers (kilometers = miles * 1.6)
+    display the kilometers
