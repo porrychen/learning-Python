@@ -72,13 +72,10 @@ class Convertor():
         result = ' ' + str(self.from_number) + ' ' + self.from_name + \
                  ' is equal to ' + \
                  format(self.to_number, ',.5f') + ' ' + self.to_name + ' '
-        pix_result = ''
-        siff_result = ''
-        for i in range(0, len(result)):
-            pix_result += '→'
-            siff_result += '↟'
+        pix_result = '→'
+        siff_result = '↟'
 
-        print(pix_result, result, siff_result, sep = '\n')
+        print(pix_result * len(result), result, siff_result * len(result), sep = '\n')
 
         self._from_number = None
         self._to_number = 0.0
