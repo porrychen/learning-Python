@@ -35,12 +35,9 @@ class Convertor():
 
         self.__metric = format(self.__metric, ',f')
         result = ' ' + str(self.__us) + ' ' + self.__us_name + ' is equal to ' + self.__metric + ' ' + self.__metric_name + ' ';
-        pix_result = ''
-        siff_result = ''
-        for i in range(0, len(result)):
-            pix_result += '↓'
-            siff_result += '↑'
-        print(pix_result, result, siff_result, sep = '\n')
+        pix_result = '↓'
+        siff_result = '↑'
+        print(pix_result * len(result), result, siff_result * len(result), sep = '\n')
 
         self.__us_name_plural = 's';
         self.__metric_name_plural = 's';
