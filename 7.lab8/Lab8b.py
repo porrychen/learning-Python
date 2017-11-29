@@ -48,7 +48,7 @@ def displayFood(foodList):
         # display title
         if i == 0:
             for j in range(DAYS):
-                print(' ' * (10 - len('Day' + str(j + 1))) + 'Day' + str(j + 1), end = '')
+                print(format('Day' + str(j + 1), '>10s'), end = '')
             print()
         # display coloums
         for j in range(DAYS):
