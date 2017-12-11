@@ -27,7 +27,7 @@ def main():
                 print('The student’s name is', name_list[0], name_list[-1])
 
         # ask the user whether try again
-        done = input('Do you want to enter a new strent\'s email address? (Y/n)').lower() == 'n'
+        done = input('Do you want to enter a new student\'s email address? (Y/n)').lower() == 'n'
 
     print('⬐-----------------------------------⬎')
     print(' ⭐  Thank you for using this app! ⭐ ')
