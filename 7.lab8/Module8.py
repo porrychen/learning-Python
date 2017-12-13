@@ -20,10 +20,10 @@ def main():
     input_rainfall(rainfall_list)
 
     # Calculates the average monthly rainfall, displays the result
-    average_rainfall(total_rainfall(rainfall_list), len(rainfall_list))
+    average_rainfall(sum(rainfall_list), len(rainfall_list))
 
     # Calculates the total rainfall for the year, displays the result
-    total_rainfall(rainfall_list, True)
+    total_rainfall(rainfall_list)
 
     # Displays the highest monthly rainfall and the lowest monthly rainfall
     print('The highest monthly rainfall is ', max(rainfall_list), ', and the lowest monthly rainfall is ', min(rainfall_list), sep = '')
@@ -43,15 +43,14 @@ def input_rainfall(rainfall_list):
                 print('⛔ ERROR: Must be a valid number of the rainfall! \n')
 
 # The total_rainfall function.
-def total_rainfall(rainfall_list, isdisplay = False):
-    sum = 0
+def total_rainfall(rainfall_list):
+    total = 0
     for value in rainfall_list:
-        sum += value
+        total += value
 
-    if isdisplay:
-        print('The total rainfall for the year is', sum)
+    print('The total rainfall for the year is', total)
 
-    return sum
+    return total
 
 # # The average_rainfall function.
 def average_rainfall(total_rainfall, count):
