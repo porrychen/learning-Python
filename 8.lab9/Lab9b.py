@@ -14,14 +14,14 @@ def main():
     while not done:
         date = ''
         while date == '':
-            # input a date in numeric format
+            # 1. input a date in numeric format
             date = input('Please enter a date(mm/dd/yy): ')
 
-            # check the date is valid
+            # 2. check the date is valid
             date = check_date(date)
             
             if date != '':
-                # output the date in long date format
+                # 3.output the date in long date format
                 show_date(date)
 
         # ask the user whether try again
